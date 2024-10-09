@@ -37,9 +37,23 @@ public class partTimeJob extends Job {
         System.out.println("Start Date: " + getStartDate() + ", End Date: " + getEndDate());
     }
 
+    //override for job satisfaction
     @Override
-    public String assessJobSatisfaction(){
-        return "N/A"; //place holder fix this
+    public int assessJobSatisfaction(){
+        int satisfaction = 10; //start at the highest score
+        if (hoursPerWeek > 30) {
+            satisfaction -= 5; //decrease satisfaction for high hours
+        }
+        if (hourlyWage < 15) {
+            satisfaction -= 3; //decrease for lower wages
+        }
+        
+        //ensure satisfaction does not go below 1
+        if (satisfaction < 1) {
+            satisfaction = 1;
+        }
+        
+        return satisfaction;
     }
 
     //method to calculate salary

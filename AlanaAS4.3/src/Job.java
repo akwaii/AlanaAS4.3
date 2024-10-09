@@ -62,5 +62,5 @@ abstract class Job {
     }
 
     //abstract class for satisfaction
-    public abstract String assessJobSatisfaction();
+    public abstract int assessJobSatisfaction();
 }

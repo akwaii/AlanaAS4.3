@@ -38,8 +38,21 @@ public class fullTimeJob extends Job{
     }
 
     @Override
-    public String assessJobSatisfaction(){
-        return "N/A"; //place holder fix this
+    public int assessJobSatisfaction(){
+        int satisfaction = 10; //start at the highest score
+        if (hoursPerWeek > 50) {
+            satisfaction -= 5; //decrease satisfaction for high hours
+        }
+        if (hourlyWage < 25) {
+            satisfaction -= 3; //decrease for lower wages
+        }
+        
+        //ensures satisfaction does not go below 1
+        if (satisfaction < 1) {
+            satisfaction = 1;
+        }
+        
+        return satisfaction;
     }
 
     //method to calculate salary
