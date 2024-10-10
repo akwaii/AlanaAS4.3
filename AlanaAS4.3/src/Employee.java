@@ -1,24 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.time.Period;
 
 public class Employee {
     private String name;
     private int employeeId;
     private List<Job> jobHistory;
 
-    // Constructor
+    //constructor
     public Employee(String name, int employeeId) {
         this.name = name;
         this.employeeId = employeeId;
         this.jobHistory = new ArrayList<>();
     }
 
-    // Method to add a job to the employee's history
+    //method to add a job to the employee's history
     public void addJob(Job job) {
         jobHistory.add(job);
     }
 
-    // Method to retrieve job details
+    //method to retrieve job details
     public void displayJobHistory() {
         if (jobHistory.isEmpty()) {
             System.out.println(name + " has no job history.");
@@ -33,16 +34,17 @@ public class Employee {
         }
     }
 
-    // Method to calculate total work experience in years
+    //method to calculate total work experience in years
     public int calculateTotalExperience() {
         int totalExperience = 0;
         for (Job job : jobHistory) {
-            totalExperience += job.getEndDate().getYear() - job.getStartDate().getYear();
+            totalExperience += Period.between(job.getStartDate(), job.getEndDate()).getYears();
         }
         return totalExperience;
     }
+    
 
-    // Method to calculate average job satisfaction
+    //method to calculate average job satisfaction
     public double calculateAverageSatisfaction() {
         if (jobHistory.isEmpty()) {
             return 0.0; // Return 0 if no jobs exist
@@ -56,7 +58,7 @@ public class Employee {
         return (double) totalSatisfaction / jobHistory.size();
     }
 
-    // Getters
+    //getters
     public String getName() {
         return name;
     }

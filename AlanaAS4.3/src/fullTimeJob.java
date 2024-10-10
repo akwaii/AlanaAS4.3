@@ -67,7 +67,7 @@ public class fullTimeJob extends Job{
         if (hoursPerWeek <= 40){
             return "Excellent.";
         } else if (hoursPerWeek <= 50){
-            return "Modeerate.";
+            return "Moderate.";
         } else {
             return "Poor";
         }

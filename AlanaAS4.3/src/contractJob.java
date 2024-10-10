@@ -49,7 +49,7 @@ public class contractJob extends Job {
     }
 
     //setter for hours worked
-    public void getHoursWorked(int hoursWorked){
+    public void setHoursWorked(int hoursWorked){
         this.hoursWorked = hoursWorked;
     }
 
